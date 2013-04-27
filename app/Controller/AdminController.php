@@ -31,11 +31,7 @@ class AdminController extends AppController {
     }
     
     public function manager_dashboard() {
-        
-    }
-    
-    public function manager_logout() {
-        $this->redirect($this->Auth->logout());
-    }
+        $this->set('title_for_layout',__('Catalog Engine - Dashboard'));
+    }        
     
 }
