@@ -7,7 +7,7 @@
         </title>
         
         <!-- css block -->
-        <?php echo $this->Html->css(array('normalize','foundation.min')); ?>
+        <?php echo $this->Html->css(array('normalize','foundation.min','app')); ?>
         <?php echo $this->fetch('css'); ?>
         
         <!-- on top javascript block -->
@@ -23,9 +23,19 @@
         <?php echo $this->fetch('after_content'); ?>
         
         <!-- on bottom javascript block -->
-        <?php echo $this->Html->script('vendor/jquery'); ?>
+        <script>
+            document.write('<script src=/js/vendor/'
+              + ('__proto__' in {} ? 'zepto' : 'jquery')
+              + '.js><\/script>');
+        </script>        
         <?php echo $this->Html->script('foundation.min'); ?>
         <?php echo $this->fetch('script_on_bottom'); ?>
+        
+        <script>
+        $(function(){
+          $(document).foundation();    
+        })
+        </script>
         
     </body>
 </html>

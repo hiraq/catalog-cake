@@ -17,6 +17,25 @@ class AdminController extends AppController {
     
     public function manager_login() {
         
+        if ($this->request->is('post')) {
+            if ($this->Auth->login()) {
+                $this->redirect($this->Auth->redirectUrl());
+            } else{
+                $this->set('login_error',true);
+                $this->Session->setFlash(__('Username atau password tidak valid'),'default',array(),'auth');
+            }
+        }
+        
+        $this->set('title_for_layout',__('Administrator Login'));
+        
+    }
+    
+    public function manager_dashboard() {
+        
+    }
+    
+    public function manager_logout() {
+        $this->redirect($this->Auth->logout());
     }
     
 }
