@@ -1,2 +1,4 @@
 nbproject
 app/Config/database.php
+app/tmp
+*.log
