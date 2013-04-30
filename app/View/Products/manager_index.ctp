@@ -25,18 +25,22 @@ $this->Paginator->options(array(
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($products as $product) : ?>
-                <tr>
-                    <td><?php echo $product['CatalogProduct']['product_name']; ?></td>
-                    <td>
-                        <?php echo $this->Html->link(__('Edit'),array('controller' => 'products','action' => 'edit','manager' => true,$product['CatalogProduct']['id'])); ?>
-                        <?php echo $this->Form->postLink(__('Delete'),
-                                array('controller' => 'products','action' => 'delete','manager' => true,$product['CatalogProduct']['id']),
-                                array(),
-                                __('Are you sure want to delete this product?')); ?>
-                    </td>
-                </tr>
-                <?php endforeach; ?>
+                <?php if (!empty($products)) : ?>
+                    <?php foreach ($products as $product) : ?>
+                    <tr>
+                        <td><?php echo $product['CatalogProduct']['product_name']; ?></td>
+                        <td>
+                            <?php echo $this->Html->link(__('Edit'),array('controller' => 'products','action' => 'edit','manager' => true,$product['CatalogProduct']['id'])); ?>
+                            <?php echo $this->Form->postLink(__('Delete'),
+                                    array('controller' => 'products','action' => 'delete','manager' => true,$product['CatalogProduct']['id']),
+                                    array(),
+                                    __('Are you sure want to delete this product?')); ?>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <p><?php echo __('No products for now'); ?></p>
+                <?php endif; ?>
             </tbody>
         </table>
     </div>  

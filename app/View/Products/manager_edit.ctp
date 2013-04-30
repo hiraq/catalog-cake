@@ -1,7 +1,7 @@
 <div class="row">
     
     <div class="large-7 large-centered columns">
-        <h1 class="subheader"><?php echo __('Change Password'); ?></h1>
+        <h1 class="subheader"><?php echo __('Edit Product'); ?></h1>
     </div>       
     
     <div class="large-7 large-centered columns">

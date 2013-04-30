@@ -9,6 +9,13 @@ class ContactsController  extends AppController {
     
     public function beforeFilter() {
         parent::beforeFilter();
+        $this->Auth->allow(array('index'));
+    }
+    
+    public function index() {
+        $data = $this->CatalogContact->find('first');
+        $this->set('title_for_layout',__('Contact Us'));
+        $this->set(compact('data')); 
     }
     
     public function manager_index() {

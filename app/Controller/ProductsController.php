@@ -10,6 +10,7 @@ class ProductsController extends AppController {
     public function beforeFilter() {
         
         parent::beforeFilter();
+        $this->Auth->allow(array('view'));
         $this->Components->load('Paginator');
         $this->helpers[] = 'Paginator';
         
@@ -18,7 +19,7 @@ class ProductsController extends AppController {
          */
         $this->paginate = array(
              'CatalogProduct' => array(
-                'limit' => 2,
+                'limit' => 10,
                 'order' => array('CatalogProduct.product_created' => 'desc')
             )
         );
@@ -114,6 +115,22 @@ class ProductsController extends AppController {
             $this->redirect($this->referer());
             
         }
+        
+    }
+    
+    public function view($id) {
+        
+        $id = intval($id);
+        $data = $this->CatalogProduct->find('first',array(
+            'conditions' => array('CatalogProduct.id' => $id)
+        ));
+        
+        if (empty($data)) {
+            $this->redirect(array('controller' => 'pages','action' => 'home'),302,true);
+        }
+        
+        $this->set('title_for_layout',$data['CatalogProduct']['product_name']);
+        $this->set(compact('data'));
         
     }
     

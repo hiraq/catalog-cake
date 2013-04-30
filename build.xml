@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Catalog Cake" default="build">
+    
+    <target name="clear_cache">
+        <delete>
+            <fileset dir="app/tmp/cache/models">
+                <include name="*" />
+            </fileset>
+            <fileset dir="app/tmp/cache/persistent">
+                <include name="*" />
+            </fileset>
+            <fileset dir="app/tmp/cache/views">
+                <include name="*" />
+            </fileset>
+            <exclude name="empty" />
+        </delete>
+    </target>
+    
+    <target name="translate" depends="clear_cache">
+        <exec command="./app/Console/cake i18n extract" passthru="true" />
+    </target>
+    
+    <target name="build">        
+        <phingcall target="translate" />
+        <phingcall target="clear_cache" />
+    </target>
+    
+</project>

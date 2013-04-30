@@ -1,7 +1,7 @@
 <div class="row">
     
     <div class="large-7 large-centered columns">
-        <h1 class="subheader"><?php echo __('Change Password'); ?></h1>
+        <h1 class="subheader"><?php echo __('Add Product'); ?></h1>
     </div>       
     
     <div class="large-7 large-centered columns">
@@ -67,7 +67,7 @@
         
         <div class="row">
             <div class="large-6 columns">
-                <input type="submit" value="<?php echo __('Update'); ?>" class="button small" />
+                <input type="submit" value="<?php echo __('Add'); ?>" class="button small" />
                 <?php echo $this->Html->link(__('Back'),array(
                     'controller' => 'admin',
                     'action' => 'dashboard',
