@@ -7,6 +7,10 @@ class ContactsController  extends AppController {
     
     public $uses = array('CatalogContact');
     
+    public function beforeFilter() {
+        parent::beforeFilter();
+    }
+    
     public function manager_index() {
         
         $data = $this->CatalogContact->find('first');

@@ -1,4 +1,8 @@
 nbproject
 app/Config/database.php
 app/tmp
+app/webroot/img/products/*.jpg
+app/webroot/img/products/*.png
+app/webroot/img/products/*.gif
+app/webroot/img/products/*.jpeg
 *.log
