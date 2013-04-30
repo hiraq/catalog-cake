@@ -36,7 +36,7 @@
         
         <ul id="action3" class="f-dropdown" data-dropdown-content>
             <li>
-                <?php echo $this->Html->link(__('Manage'),array('controller' => 'users','action' => 'change_password','manager' => true)); ?>
+                <?php echo $this->Html->link(__('Update Password'),array('controller' => 'users','action' => 'change_password','manager' => true)); ?>
             </li>
             <li>
                 <?php echo $this->Html->link(__('Logout'),array('controller' => 'users','action' => 'logout','manager' => true)); ?>
