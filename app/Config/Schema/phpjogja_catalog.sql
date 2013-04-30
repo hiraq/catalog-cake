@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 27, 2013 at 08:55 AM
+-- Generation Time: May 01, 2013 at 03:00 AM
 -- Server version: 5.5.31
 -- PHP Version: 5.4.6-1ubuntu1.2
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `phpjogja_catalog`
+-- Database: `phpjogja_catalog_copy`
 --
 
 -- --------------------------------------------------------
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `catalog_products` (
   `product_price` bigint(150) NOT NULL,
   `product_main_image` varchar(255) NOT NULL,
   `product_created` datetime NOT NULL,
-  `product_modifie` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `product_modified` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `product_name` (`product_name`),
   KEY `product_price` (`product_price`),
@@ -67,7 +67,14 @@ CREATE TABLE IF NOT EXISTS `catalog_users` (
   `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `username` (`username`,`password`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `catalog_users`
+--
+
+INSERT INTO `catalog_users` (`id`, `username`, `password`, `created`, `modified`) VALUES
+(1, 'manager', '069c8f07c7fd5fdfabd1322952f07513439d063f', '2013-04-27 00:00:00', '2013-04-30 17:18:43');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
