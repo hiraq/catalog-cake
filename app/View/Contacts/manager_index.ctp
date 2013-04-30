@@ -29,7 +29,7 @@
         <div class="row">
             <div class="large-6 columns">
                 <input type="submit" value="<?php echo __('Update'); ?>" class="button small" />
-                <?php echo $this->Html->link(__('Cancel'),array(
+                <?php echo $this->Html->link(__('Back'),array(
                     'controller' => 'admin',
                     'action' => 'dashboard',
                     'manager' => true,
